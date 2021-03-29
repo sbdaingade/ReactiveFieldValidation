@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import RealityKit
+import Bond
 class EmployeeCell: UITableViewCell,TableViewReuseableProtocol {
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,10 +23,9 @@ class EmployeeCell: UITableViewCell,TableViewReuseableProtocol {
         
         // Configure the view for the selected state
     }
-    func configureCell(withEmployee emp: Employee)
+    func configureCell(withEmployee employeeState: EmployeeState)
     {
-        self.titleLabel?.text = emp.title
-        self.subTitleLabel?.text = emp.body
-        
+        employeeState.output.name.bind(to: titleLabel).dispose(in: bag)
+        employeeState.output.description.bind(to: subTitleLabel).dispose(in: bag)
     }
 }

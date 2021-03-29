@@ -63,7 +63,10 @@ class ViewController: UITableViewController {
             let user = User(userName: userNameTextfield.text!, email: emailTextfield.text!, password: passwordTextfield.text!)
             print(user)
             
-            let employeeVC = EmployeesViewController.makeViewController()
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return }
+            let mainState = appDelegate.mainState
+            mainState.input.action.send(.getAllEmployees)
+            let employeeVC = EmployeesViewController.makeViewController(mainState: mainState)
             self.navigationController?.pushViewController(employeeVC, animated: true)
             
         }.dispose(in: bag)

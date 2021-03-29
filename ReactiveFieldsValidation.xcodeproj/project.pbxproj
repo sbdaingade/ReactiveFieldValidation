@@ -25,6 +25,9 @@
 		18D7513125E7C93B0035F827 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7513025E7C93B0035F827 /* EmployeesViewController.swift */; };
 		18E2C52E25DE592900B27CAB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2C52D25DE592900B27CAB /* String.swift */; };
 		18E2C53225DE9A2F00B27CAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2C53125DE9A2F00B27CAB /* User.swift */; };
+		4A0CA3482610A2F8004A1A2F /* EmployeeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CA3472610A2F8004A1A2F /* EmployeeState.swift */; };
+		4A0CA34B2610C54B004A1A2F /* RESTAPIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CA34A2610C54B004A1A2F /* RESTAPIState.swift */; };
+		4A0CA34E2610C5D6004A1A2F /* MainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CA34D2610C5D6004A1A2F /* MainState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		18D7513025E7C93B0035F827 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		18E2C52D25DE592900B27CAB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		18E2C53125DE9A2F00B27CAB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4A0CA3472610A2F8004A1A2F /* EmployeeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeState.swift; sourceTree = "<group>"; };
+		4A0CA34A2610C54B004A1A2F /* RESTAPIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIState.swift; sourceTree = "<group>"; };
+		4A0CA34D2610C5D6004A1A2F /* MainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 		182D6CE225D8E12E00BA64D8 = {
 			isa = PBXGroup;
 			children = (
+				4A0CA3462610A2DF004A1A2F /* ViewModels */,
 				18D7512E25E7C6C70035F827 /* Extension */,
 				18D7512D25E7C6A70035F827 /* DataModels */,
 				18D7512C25E7C6990035F827 /* Network */,
@@ -139,6 +146,16 @@
 				1840E5DD25DC3A88007C0140 /* Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4A0CA3462610A2DF004A1A2F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4A0CA3472610A2F8004A1A2F /* EmployeeState.swift */,
+				4A0CA34A2610C54B004A1A2F /* RESTAPIState.swift */,
+				4A0CA34D2610C5D6004A1A2F /* MainState.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,12 +238,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0CA34E2610C5D6004A1A2F /* MainState.swift in Sources */,
 				18E2C52E25DE592900B27CAB /* String.swift in Sources */,
 				18D7512A25E7C0A50035F827 /* Employee.swift in Sources */,
 				18D7512725E7BC140035F827 /* Fetcher.swift in Sources */,
+				4A0CA3482610A2F8004A1A2F /* EmployeeState.swift in Sources */,
 				1840E5DE25DC3A88007C0140 /* Extension.swift in Sources */,
 				182D6CF325D8E12E00BA64D8 /* ViewController.swift in Sources */,
 				182D6CEF25D8E12E00BA64D8 /* AppDelegate.swift in Sources */,
+				4A0CA34B2610C54B004A1A2F /* RESTAPIState.swift in Sources */,
 				182D6CF125D8E12E00BA64D8 /* SceneDelegate.swift in Sources */,
 				1840E5C825DC39C5007C0140 /* HeaderView.swift in Sources */,
 				181F1ADA25F0AE9400154094 /* EmployeeCell.swift in Sources */,

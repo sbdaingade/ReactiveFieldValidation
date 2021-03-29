@@ -32,17 +32,17 @@ class Fetcher<T: Decodable>{
     }
     
     
-    func fetchList(withURL url: String,onComplition:@escaping ([T])-> Void) {
+    func fetchList(withURL url: String,onComplition:@escaping ([T],Error? )-> Void) {
         
         let mainURL = URL(string: url)
         URLSession.shared.dataTask(with: URLRequest(url: mainURL!)) { (data,respsne,error) in
             guard let jsonData = data else { print("\(String(describing: error))")
-                onComplition([])
+                onComplition([],error)
                 return
             }
             let decoder = JSONDecoder()
             let result = try? decoder.decode([T].self, from: jsonData)
-            onComplition(result ?? [])
+            onComplition(result ?? [], nil)
         }.resume()
     
     }

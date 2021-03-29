@@ -12,11 +12,10 @@ import Bond
 class EmployeesViewController: UITableViewController {
     
     struct Input {
-        let employees =  MutableObservableArray<Employee>()
+        let employees =  MutableObservableArray<EmployeeState>()
     }
     
     let input = Input()
-    typealias fetchEmployeeRecords = Fetcher<Employee>
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,28 +29,26 @@ class EmployeesViewController: UITableViewController {
             let emp = employees.item(at: indexPath)
             let cell = tableView.dequeueReusableCell(indexPath: indexPath, cellType: EmployeeCell.self)
             cell.configureCell(withEmployee: emp)
-           
+            
             return cell
         }.dispose(in: bag)
-
+        
         
         tableView.reactive.delegate.signal(for: #selector(UITableViewDelegate.tableView(_:willDisplayHeaderView:forSection:)), dispatch: { (subject: PassthroughSubject<Void, Never>, tableView: UITableView, view: UITableViewHeaderFooterView, section: Int) in
             _ = tableView.dequeueReusableHeaderFooterView(HeaderView.self)
         }).bind(to: tableView) { _ in }.dispose(in: bag)
         
     }
+    
+    deinit {
+    }
 }
 extension EmployeesViewController {
-    static func makeViewController() -> EmployeesViewController {
+    static func makeViewController(mainState: MainState) -> EmployeesViewController {
         let employeesViewController = EmployeesViewController()
         employeesViewController.title = "Employees".localized()
         
-        fetchEmployeeRecords.init().fetchList(withURL: "https://jsonplaceholder.typicode.com/posts") { emps in
-            employeesViewController.input.employees.removeAll()
-            emps.forEach{ emp in
-                employeesViewController.input.employees.append(emp)
-            }
-        }
+        mainState.output.employees.bind(to: employeesViewController.input.employees).dispose(in: employeesViewController.bag)
         return employeesViewController
     }
 }
