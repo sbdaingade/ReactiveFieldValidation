@@ -20,7 +20,6 @@ class MainState {
     struct Output{
         let employees = MutableObservableArray<EmployeeState>()
         public let requestState = PassthroughSubject<RESTAPIState,Never>()
-        
     }
     
     let input = Input()
